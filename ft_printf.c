@@ -6,16 +6,18 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:34:00 by nakebli           #+#    #+#             */
-/*   Updated: 2022/11/01 21:29:49 by nakebli          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:10:17 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 static void ft_check(char c, int *len, void *value)
 {
 	if (c == 'c')
 		ft_putchar((char)value,len);
+	else if (c == 'u')
+		ft_printunsignedint((unsigned int)value,len);
 	else if (c == 's')
 		ft_putstr((char *)value, len);
 	else if (c == 'p')
@@ -25,15 +27,15 @@ static void ft_check(char c, int *len, void *value)
 	}
 	else if (c == 'd' || c == 'i')
 		ft_putnbr((int)value,len);
-	if (c == 'u')
-		ft_putnbr((int)value,len);
 	else if (c == 'x' || c == 'X')
 		ft_puthexadecimal((int)value, c, len);
+	else
+		ft_putchar(c,len);
 }
 
 int ft_printf(const char *format, ...)
 {
-	int     i;
+	int	i;
 	int len;
 
 	len = 0;
@@ -45,12 +47,14 @@ int ft_printf(const char *format, ...)
 		if(format[i] == '%')
 		{
 			i++;
-			if (format[i] != '%')
+			if (format[i] && format[i] != '%')
 			{
 				ft_check(format[i],&len,va_arg(lst,void *));
 			}
-			else
+			else if (format[i] && format[i] == '%')
 				ft_putchar('%',&len);
+			else
+				return (len);
 		}
 		else
 			ft_putchar(format[i],&len);

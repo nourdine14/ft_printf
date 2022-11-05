@@ -1,7 +1,8 @@
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int main()
 {
-	// int i = 10;
-	printf("%u",214748364);
+	int i = 2147483655;
+	printf("%d",printf("%u -> " ,i));
+	ft_printf("%d\n",ft_printf("%u -> ",i));
 }

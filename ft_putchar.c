@@ -6,11 +6,11 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:56:07 by nakebli           #+#    #+#             */
-/*   Updated: 2022/10/31 11:25:28 by nakebli          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:06:04 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void ft_putchar(char c,int *len)
 {
