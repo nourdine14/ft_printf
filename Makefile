@@ -1,7 +1,7 @@
 NAME =    libftprintf.a
 
 SRCS = ft_putstr.c \
-	ft_printphd.c \
+	ft_putptr_hexad.c \
 	ft_putchar.c \
 	ft_puthexadecimal.c \
 	ft_putnbr.c \
@@ -35,3 +35,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+.PHONY: all clean fclean re

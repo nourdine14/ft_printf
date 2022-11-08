@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printphd.c                                      :+:      :+:    :+:   */
+/*   ft_putptr_hexad.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:10:18 by nakebli           #+#    #+#             */
-/*   Updated: 2022/11/05 10:10:14 by nakebli          ###   ########.fr       */
+/*   Created: 2022/11/06 19:15:49 by nakebli           #+#    #+#             */
+/*   Updated: 2022/11/06 19:22:25 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_printphd(unsigned long  n, int *len)
+void	ft_putptr_hexad(unsigned long value, int *len)
 {
-	char *str;
- 
+	char	*str;
+
 	str = "0123456789abcdef";
-	if(n > 16)
+	if (value >= 16)
 	{
-		ft_printphd(n / 16, len);
-		ft_printphd(n % 16, len);
+		ft_putptr_hexad(value / 16, len);
+		ft_putptr_hexad(value % 16, len);
 	}
 	else
-		ft_putchar(str[n], len);
+		ft_putchar(str[value], len);
 }
